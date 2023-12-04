@@ -1999,3 +1999,6 @@ six5four1four4
 fqckxpqrjk8eighteighttwo6fivejps4
 drvglmnine7three8one7twodxtr
 mbnfjkxptbtjmgcrtkhxjvjhjnine83mpnsixfcmxcbnspx"""
+
+output_1 = 53974
+output_2 = 52840
