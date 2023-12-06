@@ -3,10 +3,10 @@ from day_X import solve_1, solve_2
 import inputs.day_X as real_data
 
 input_1 = """"""
-output_1 = None
+output_1 = ""
 
 input_2 = """"""
-output_2 = None
+output_2 = ""
 
 
 class MyTestCase(unittest.TestCase):
