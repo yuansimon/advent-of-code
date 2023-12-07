@@ -1,12 +1,16 @@
 import unittest
-from day_X import solve_1, solve_2
-import inputs.day_X as real_data
+from day_7 import solve_1, solve_2
+import inputs.day_7 as real_data
 
-input_1 = """"""
-output_1 = ""
+input_1 = """32T3K 765
+T55J5 684
+KK677 28
+KTJJT 220
+QQQJA 483"""
+output_1 = 6440
 
-input_2 = """"""
-output_2 = ""
+input_2 = input_1
+output_2 = 5905
 
 
 class MyTestCase(unittest.TestCase):
