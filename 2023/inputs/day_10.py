@@ -142,4 +142,4 @@ FL7-|F77F|7-FFL-.|F7J7JFJ-7FFJJFLL.7-F-.|F77-.LJJJL|JL-L|77FFLJF7FLJL77FJFJ..F|-
 input_2 = input_1
 
 output_1 = 6828
-output_2 = ""
+output_2 = 459
