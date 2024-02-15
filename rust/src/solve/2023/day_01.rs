@@ -1,4 +1,6 @@
+use std::error::Error;
 use indoc::indoc;
+
 use crate::dprintln;
 use crate::solve::TestCaseProvider;
 
@@ -18,43 +20,58 @@ impl super::Solver for Solve {
     }
 
     fn is_part_two_solved() -> bool {
-        false
+        true
     }
 
     fn part_one(debug: bool, input: &str) -> String {
-        let mut sum = 0u32;
-        for line in input.lines() {
-            let mut first_digit = None;
-            let mut last_digit = None;
-            for char in line.chars() {
-                if let Some(digit) = char.to_digit(10) {
-                    if first_digit.is_none() {
-                        first_digit = Some(digit);
-                    }
-                    last_digit = Some(digit);
-                }
-            }
-            let first_digit = first_digit
-                .expect(&format!("no digits found in line {}", line))
-                .to_string();
-            let last_digit = last_digit.unwrap().to_string();
-
-            let number: u32 = format!("{first_digit}{last_digit}").parse().unwrap();
-            dprintln!(debug, "found number: {number}");
-            sum += number;
-        };
-        dprintln!(debug, "Result: {sum}");
-        sum.to_string()
+        let digits = vec!["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        let digits: Vec<(usize, &str)> = digits.into_iter().enumerate().collect();
+        solve(debug, input, digits)
     }
 
     fn part_two(debug: bool, input: &str) -> String {
-        todo!()
+        let digit_names = vec!["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+        let digit_names: Vec<(usize, &str)> = digit_names.into_iter().enumerate().collect();
+        let digits = vec!["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+        let digits: Vec<(usize, &str)> = digits.into_iter().enumerate().collect();
+        let mut all_digits: Vec<(usize, &str)> = vec![];
+        all_digits.extend(digits);
+        all_digits.extend(digit_names);
+        solve(debug, input, all_digits)
     }
 }
 
+
+fn solve(debug: bool, input: &str, all_digits: Vec<(usize, &str)>) -> String {
+    let mut sum = 0u32;
+    for line in input.lines() {
+        let first_digit: usize = all_digits
+            .iter()
+            .map(|&(value, digit)| line.find(digit).map(|pos| (value, pos)))
+            .flatten()
+            .min_by_key(|&(_, pos)| pos)
+            .map(|(value, _)| value + 1)
+            .expect(&format!("Unexpected input line without any digits: {line}"));
+
+        let last_digit: usize = all_digits
+            .iter()
+            .map(|&(value, digit)| line.rfind(digit).map(|pos| (value, pos)))
+            .flatten()
+            .max_by_key(|&(_, pos)| pos)
+            .map(|(value, _)| value + 1)
+            .expect(&format!("Unexpected input line without any digits: {line}"));
+
+        let number: u32 = format!("{first_digit}{last_digit}").parse().unwrap();
+        dprintln!(debug, "found number: {number}");
+        sum += number;
+    };
+    sum.to_string()
+}
+
+
 struct TestCases;
 
-impl TestCaseProvider for TestCases {
+impl TestCaseProvider<Solve> for TestCases {
     fn get_part_one_example_input() -> &'static str {
         indoc! {"
                 1abc2
@@ -89,10 +106,9 @@ impl TestCaseProvider for TestCases {
     }
 
     fn get_part_two_real_output() -> &'static str {
-        ""
+        "52840"
     }
 }
-
 
 #[cfg(test)]
 mod tests {
@@ -100,21 +116,18 @@ mod tests {
 
     #[test]
     fn test_part_one_example() {
-        TestCases::test_part_one_example::<Solve>();
+        TestCases::test_part_one_example(true);
     }
-
     #[test]
     fn test_part_one_real() {
-        TestCases::test_part_one_real::<Solve>();
+        TestCases::test_part_one_real(false);
     }
-
     #[test]
     fn test_part_two_example() {
-        TestCases::test_part_two_example::<Solve>();
+        TestCases::test_part_two_example(true);
     }
-
     #[test]
     fn test_part_two_real() {
-        TestCases::test_part_two_real::<Solve>();
+        TestCases::test_part_two_real(false);
     }
 }

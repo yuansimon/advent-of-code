@@ -15,3 +15,8 @@ macro_rules! dprint {
         }
     };
 }
+
+pub fn print_hr(add_newline: bool) {
+    println!("---------------------------------------------------------------");
+    if add_newline { println!() };
+}

@@ -7,4 +7,5 @@ mod utils;
 #[tokio::main]
 async fn main() {
     solve::day_01::solve_part_one().unwrap();
+    solve::day_01::solve_part_two().unwrap();
 }
