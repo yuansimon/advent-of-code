@@ -9,6 +9,8 @@ use crate::utils::print_hr;
 
 #[path = "solve/2023/day_01.rs"]
 mod y2023d01;
+#[path = "solve/2023/day_02.rs"]
+mod y2023d02;
 
 pub trait Solver {
     fn get_year() -> u32;

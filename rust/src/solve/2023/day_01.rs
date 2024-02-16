@@ -74,11 +74,11 @@ struct TestCases;
 impl TestCaseProvider<Solve> for TestCases {
     fn get_part_one_example_input() -> &'static str {
         indoc! {"
-                1abc2
-                pqr3stu8vwx
-                a1b2c3d4e5f
-                treb7uchet
-            "}
+            1abc2
+            pqr3stu8vwx
+            a1b2c3d4e5f
+            treb7uchet
+        "}
     }
 
     fn get_part_one_example_output() -> &'static str {
@@ -91,14 +91,14 @@ impl TestCaseProvider<Solve> for TestCases {
 
     fn get_part_two_example_input() -> &'static str {
         indoc! {"
-                two1nine
-                eightwothree
-                abcone2threexyz
-                xtwone3four
-                4nineeightseven2
-                zoneight234
-                7pqrstsixteen
-            "}
+            two1nine
+            eightwothree
+            abcone2threexyz
+            xtwone3four
+            4nineeightseven2
+            zoneight234
+            7pqrstsixteen
+        "}
     }
 
     fn get_part_two_example_output() -> &'static str {
@@ -118,14 +118,17 @@ mod tests {
     fn test_part_one_example() {
         TestCases::test_part_one_example(true);
     }
+
     #[test]
     fn test_part_one_real() {
         TestCases::test_part_one_real(false);
     }
+
     #[test]
     fn test_part_two_example() {
         TestCases::test_part_two_example(true);
     }
+
     #[test]
     fn test_part_two_real() {
         TestCases::test_part_two_real(false);
