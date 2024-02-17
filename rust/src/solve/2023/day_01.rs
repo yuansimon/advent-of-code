@@ -1,12 +1,11 @@
-use std::error::Error;
 use indoc::indoc;
 
 use crate::dprintln;
-use crate::solve::TestCaseProvider;
+use crate::solve::{Solver, TestCaseProvider};
 
 pub struct Solve;
 
-impl super::Solver for Solve {
+impl Solver for Solve {
     fn get_year() -> u32 {
         2023
     }

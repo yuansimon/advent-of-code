@@ -1,16 +1,11 @@
+pub mod index;
+
 use std::error::Error;
 
 use futures::executor::block_on;
 
-pub use y2023d01::Solve as day_01;
-
 use crate::aoc::helper::read_or_fetch_input;
 use crate::utils::print_hr;
-
-#[path = "solve/2023/day_01.rs"]
-mod y2023d01;
-#[path = "solve/2023/day_02.rs"]
-mod y2023d02;
 
 pub trait Solver {
     fn get_year() -> u32;
@@ -54,7 +49,7 @@ pub trait TestCaseProvider<S: Solver> {
     fn test_part_one_example(debug: bool) {
         let input = Self::get_part_one_example_input();
         let output = Self::get_part_one_example_output();
-        println!("Running Part 1 Test on example input and expecting output [{output}]: \n{input}");
+        println!("Running Part 1 Test on example input and expecting output [{output}]: \n{input}\n");
         let result = S::part_one(debug, input);
         print_hr(false);
         println!("Resulting output [{result}]. Expecting output [{output}]");
@@ -62,7 +57,7 @@ pub trait TestCaseProvider<S: Solver> {
         assert_eq!(result, output);
     }
     fn test_part_one_custom(debug: bool, input: &str, output: &str) {
-        println!("Running Part 1 Test on custom input and expecting output [{output}]: \n{input}");
+        println!("Running Part 1 Test on custom input and expecting output [{output}]: \n{input}\n");
         let result = S::part_one(debug, input);
         print_hr(false);
         println!("Resulting output [{result}]. Expecting output [{output}]");
@@ -87,7 +82,7 @@ pub trait TestCaseProvider<S: Solver> {
         if S::is_part_one_solved() {
             let input = Self::get_part_two_example_input();
             let output = Self::get_part_two_example_output();
-            println!("Running Part 2 Test on example input and expecting output [{output}]: \n{input}");
+            println!("Running Part 2 Test on example input and expecting output [{output}]: \n{input}\n");
             let result = S::part_two(debug, input);
             print_hr(false);
             println!("Resulting output [{result}]. Expecting output [{output}]");
@@ -99,7 +94,7 @@ pub trait TestCaseProvider<S: Solver> {
     }
     fn test_part_two_custom(debug: bool, input: &str, output: &str) {
         if S::is_part_one_solved() {
-            println!("Running Part 2 Test on custom input and expecting output [{output}]: \n{input}");
+            println!("Running Part 2 Test on custom input and expecting output [{output}]: \n{input}\n");
             let result = S::part_two(debug, input);
             print_hr(false);
             println!("Resulting output [{result}]. Expecting output [{output}]");
