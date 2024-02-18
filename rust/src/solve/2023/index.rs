@@ -1,7 +1,7 @@
 mod day_01;
 mod day_02;
 mod day_03;
-// mod day_04;
+mod day_04;
 // mod day_05;
 // mod day_06;
 // mod day_07;
@@ -31,8 +31,8 @@ pub use day_01::Solve as d01;
 pub use day_02::Solve as d02;
 #[allow(unused_imports)]
 pub use day_03::Solve as d03;
-// #[allow(unused_imports)]
-// pub use day_04::Solve as d04;
+#[allow(unused_imports)]
+pub use day_04::Solve as d04;
 // #[allow(unused_imports)]
 // pub use day_05::Solve as d05;
 // #[allow(unused_imports)]
