@@ -84,7 +84,7 @@ fn parse_line(debug: bool, line: &str) -> (Id, Vec<Set>) {
     let mut split = line.split(&[':', ';'][..]);
     let unparsed_id = split.next().expect(&format!("Unexpected format (no id): {line}"));
     assert!(unparsed_id.starts_with("Game "));
-    let id: Id = (&unparsed_id[5..] as &str).parse().expect(&format!("Unexpected format (invalid id): {line}"));
+    let id: Id = (&unparsed_id[5..]).parse().expect(&format!("Unexpected format (invalid id): {line}"));
     dprint!(debug, "Parsing Game {id}: ");
     let mut sets: Vec<Set> = vec![];
     for unparsed_set in split {
