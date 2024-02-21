@@ -240,4 +240,4 @@ humidity-to-location map:
 input_2 = input_1
 
 output_1 = 424490994
-output_2 = ""
+output_2 = 15290096
