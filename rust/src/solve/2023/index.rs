@@ -3,7 +3,7 @@ mod day_02;
 mod day_03;
 mod day_04;
 mod day_05;
-// mod day_06;
+mod day_06;
 // mod day_07;
 // mod day_08;
 // mod day_09;
@@ -35,8 +35,8 @@ pub use day_03::Solve as d03;
 pub use day_04::Solve as d04;
 #[allow(unused_imports)]
 pub use day_05::Solve as d05;
-// #[allow(unused_imports)]
-// pub use day_06::Solve as d06;
+#[allow(unused_imports)]
+pub use day_06::Solve as d06;
 // #[allow(unused_imports)]
 // pub use day_07::Solve as d07;
 // #[allow(unused_imports)]

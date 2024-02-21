@@ -25,12 +25,12 @@ impl Solver for Solve {
 
     fn part_one(debug: bool, input: &str) -> String {
         dprint!(debug, "{input}");
-        todo!();
+        panic!("not yet implemented");
     }
 
     fn part_two(debug: bool, input: &str) -> String {
         dprintln!(debug, "{input}");
-        todo!();
+        panic!("not yet implemented");
     }
 }
 
@@ -39,10 +39,10 @@ struct TestCases;
 impl TestCaseProvider<Solve> for TestCases {
     fn get_part_one_example_input() -> &'static str {
         indoc! {"
-            ABCD
-            ABCD
-            ABCD
-            ABCD
+            a
+            b
+            c
+            d
         "}
     }
 
@@ -56,10 +56,10 @@ impl TestCaseProvider<Solve> for TestCases {
 
     fn get_part_two_example_input() -> &'static str {
         indoc! {"
-            DBCA
-            DBCA
-            DBCA
-            DBCA
+            1
+            2
+            3
+            4
         "}
     }
 
